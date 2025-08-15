@@ -1,0 +1,71 @@
+/* body {
+    background-color: #fff5f5;
+    font-family: 'Arial', sans-serif;
+}
+
+.card {
+    max-width: 600px;
+    border: none;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.carousel {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.timer {
+    color: #d63384;
+    line-height: 1.8;
+} */
+
+body {
+    background-color: #fff0f5;
+    font-family: 'Arial', sans-serif;
+}
+
+.love-card {
+    max-width: 600px;
+    border: none;
+    border-radius: 15px;
+    overflow: hidden;
+    background-color: #fff9fb;
+}
+
+.carousel-img {
+    height: 250px;
+    object-fit: cover;
+    object-position: center;
+}
+
+.timer {
+    color: #d63384;
+    line-height: 1.8;
+    font-weight: 500;
+}
+
+.love-message {
+    background-color: #ffe6ee;
+    border-left: 4px solid #ff4d88;
+    text-align: left;
+}
+
+.love-message p {
+    margin-bottom: 0.5rem;
+    color: #5a3d5a;
+}
+
+.fst-italic {
+    color: #d63384;
+}
+
+/* Ajustes para responsividade */
+@media (max-width: 576px) {
+    .carousel-img {
+        height: 200px;
+    }
+    
+    .love-card {
+        padding: 1.5rem !important;
+    }
+}
