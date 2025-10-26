@@ -1,21 +1,16 @@
-
-import { loadYoutubeAPI } from './youtube_player.js';
-
-// Data de início do nosso relacionamento (15/11/2024 às 18:00)
-// JavaScript usa meses de 0-11 (novembro = 10)
+// Data de inicio do nosso relacionamento (15/11/2024 as 18:00)
+// Meses de 0-11 (novembro = 10)
 const startDate = new Date(2024, 10, 15, 18, 0, 0);
 
 function updateTimer() {
     const now = new Date();
-    let diff = now - startDate; // Diferença em milissegundos
+    let diff = now - startDate; // Diferenca em milissegundos
     
-    // Cálculos básicos
+    // Calculos basicos
     const seconds = Math.floor(diff / 1000) % 60;
     const minutes = Math.floor(diff / (1000 * 60)) % 60;
     const hours = Math.floor(diff / (1000 * 60 * 60)) % 24;
     const totalDays = Math.floor(diff / (1000 * 60 * 60 * 24));
-    
-    // Cálculo preciso de anos, meses e dias
     let years = 0;
     let months = 0;
     let days = totalDays;
@@ -66,10 +61,4 @@ document.addEventListener('DOMContentLoaded', function() {
         interval: 3000,
         wrap: true
     });
-
-    // Carregar o API do YouTube
-    loadYoutubeAPI();
-
-    // Inicializar o player de áudio personalizado (importado)
-    initializeAudioPlayer();
 });

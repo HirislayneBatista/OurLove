@@ -1,21 +1,20 @@
 body {
     background-color: #e6e6fa;
     font-family: 'Arial', sans-serif;
-}
-/* body {
-    background-color: #e6e6fa;
-    font-family: 'Arial', sans-serif;
-    min-height: 100vh;
+    width: 100%;
+    height: 220vh;
     display: flex;
-    flex-direction: column;
-} */
+    justify-content: center;
+    align-items: center;
+}
 
-/* .container {
-    flex: 1;
-    padding-top: 20px;
-    padding-bottom: 20px;
-} */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
+/*** Cartao de mensagem ***/
 .love-card {
     max-width: 600px;
     border: none;
@@ -26,14 +25,14 @@ body {
 }
 
 .timer {
-    color: #050505; /* Lilás médio */
+    color: #050505;
     line-height: 1.8;
     font-weight: 500;
 }
 
 .love-message {
     background-color: #f5f0ff;
-    border-left: 4px solid #0ad9e0;
+    border-left: 4px solid #663399;
     text-align: center;
 }
 
@@ -46,16 +45,171 @@ body {
     color: #8a2be2;
 }
 
-.youtube-player {
-    max-width: 500px;
-    margin-bottom: 2rem !important;
-    border-radius: 10px;
+/*** Player de Música Personalizado ***/
+.music-player {
+    width: 300px;
+    height: 200px;
+    border-radius: 20px;
+    background-color: rgba(102, 51, 153, 0.2);
+    box-shadow: 0 10px 100px rgba(102, 51, 153, 0.2);
+    padding: 30px;
     overflow: hidden;
-    box-shadow: 0 4px 12px rgba(147, 112, 219, 0.3);
-    border: 2px solid #d8bfd8;
+    color: #000000;
+    margin: 0 auto 40px auto;
+    
 }
 
-/* Ajustes para responsividade */
+.music-name,
+.artist-name{
+    text-align: center;
+    text-transform: capitalize;
+}
+
+.music-name {
+    font-size: 20px;
+    font-weight: 400;
+    margin-bottom: 5px;
+}
+
+.artist-name {
+    font-size: 14px;
+    font-style: oblique;
+}
+
+/** Barra de progresso **/
+.song-slider{
+    width: 100%;
+    position: relative;
+}
+
+.seek-bar{
+    -webkit-appearance: none;
+    width: 100%;
+    height: 5px;
+    border-radius: 10px;
+    background-color: #a16bd4;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.seek-bar::-webkit-slider-thumb{
+    -webkit-appearance: none;
+    width: 1px;
+    height: 20px;
+    box-shadow: -400px 0 0 400px #663399;
+}
+
+.current-time,
+.music-duration{
+    font-size: 14px;
+    top: 20px;
+}
+.current-time{
+    position: absolute;
+    left: 0;
+}
+.music-duration{
+    position: absolute;
+    right: 0;
+}
+
+/** Botoes de controle **/
+.controls{
+    width: 50%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: auto;
+    margin-top: 20px;
+}
+
+/* Botao play e pause */
+.play-btn{
+    position: relative;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #a16bd4;
+    cursor: pointer;
+    border: none;
+}
+
+.play-btn span{
+    width: 5px;
+    height: 17px;
+    position: absolute;
+    top: 50%;
+    left: 30%;
+    transform: translateY(-50%);
+    border-radius: 1px;
+    background-color: #ffffff;
+    transition: .5s;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+} 
+
+.play-btn span:nth-child(2){
+    left: 55%;
+    transform-origin: center;
+}
+
+.play-btn.pause span:nth-child(2){
+    transform: translateY(-50%) scaleY(0);
+}
+
+/* Configurando botao de pause */
+.play-btn.pause span:nth-child(1){
+    width: 45%;  
+    height: 50%;
+    left: 55%;
+    transform: translate(-50%, -50%);
+    border-radius: 0;
+    clip-path: polygon(0 0, 100% 50%, 0% 100%);
+}
+
+/* Transição de ícone de pause para play */
+.play-btn.pause span:nth-child(2){
+    left: 50%; 
+    transform: translateY(-50%) scaleX(0);
+} 
+
+/* Efeito de destaque pulsante ao botão em estado de pause */
+.play-btn.pause{
+    animation: pulse 2s linear infinite;
+}
+
+@keyframes pulse {
+    0%{
+        box-shadow: 0;
+    }
+    50%{
+        box-shadow: 0 0 0 5px rgba(255, 255, 255, 0.1);
+    }
+    100%{
+        box-shadow: 0 0 0 5px rgba(255, 255, 255, 0.4);
+    }
+}
+
+/** Botoes de próximo e anterior **/
+.btn{
+    width: 25px;
+    height: 25px;
+    background-color: #a16bd4;;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: pointer;
+}
+
+.btn-pre-nxt{
+    position: relative;
+    width: 14px;
+    height: 14px;
+    align-content: center;
+}
+
+
+/*** Ajustes para responsividade ***/
 @media (max-width: 576px) {
     .youtube-player {
         max-width: 100%;
@@ -69,4 +223,3 @@ body {
         padding: 1.5rem !important;
     }
 }
-/*****************/

@@ -10,19 +10,32 @@
 <body>
     <div class="container d-flex justify-content-center py-2">
         <div class="card text-center p-4 shadow-lg love-card">
-            
-            <!-- Player de Música -->
-            <div class="audio-player-container mb-4 mx-auto">
-                <p class="fw-bold text-muted">💜🌊</p>
-                <audio id="loveAudioPlayer" preloads="auto" controls loop>
-                    <source src="/musicas/Oceano.mp3" type="audio/mpeg" title="Oceano">
-                    <source src="/musicas/Acerola.mp3" type="audio/mpeg" title="Acerola">
-                </audio>
-                <small class="text-muted d-block mt-2">Você é o meu mar.</small>
+            <!-- Player de Música -->         
+            <audio src="" id="audio"></audio>
+
+            <div class="music-player">
+                <h3 class="music-name">Primeira música</h3>
+                <p class="artist-name">Artista Desconhecido</p>
+
+                <div class="song-slider">
+                    <input type="range" class="seek-bar " value="0">
+                    <span class="current-time">00:00</span>
+                    <span class="music-duration">00:00</span>
+                </div>
+
+                <div class="controls">
+                    <button class="btn backward-btn"><img class="btn-pre-nxt" src="imagens/voltar.png" alt=""></button>
+                    <button class="play-btn pause">
+                        <span></span>
+                        <span></span>
+                    </button>
+                    <button class="btn forward-btn"><img class="btn-pre-nxt" src="imagens/avancar.png" alt=""></button>
+                </div>
+
             </div>
 
             <!-- Carrossel de fotos -->
-            <div id="loveCarousel" class="carousel slide mb-4 mx-auto" style="max-width: 230px;" data-bs-ride="carousel">
+            <div id="love-carousel" class="carousel slide mb-4 mx-auto" style="max-width: 230px;" data-bs-ride="carousel">
                 <div class="carousel-inner rounded">
                     <div class="carousel-item active">
                         <img src="/fotos/Foto1.jpg" class="d-block w-100 carousel-img" alt="Nossa Foto 1">
@@ -49,11 +62,11 @@
                         <img src="/fotos/Foto8.jpg" class="d-block w-100 carousel-img" alt="Nossa Foto 3">
                     </div>
                 </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#loveCarousel" data-bs-slide="prev">
+                <button class="carousel-control-prev" type="button" data-bs-target="#love-carousel" data-bs-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                     <span class="visually-hidden">Anterior</span>
                 </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#loveCarousel" data-bs-slide="next">
+                <button class="carousel-control-next" type="button" data-bs-target="#love-carousel" data-bs-slide="next">
                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
                     <span class="visually-hidden">Próximo</span>
                 </button>
@@ -81,9 +94,9 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="script_timer.js" type="module"></script>
-    <script src="youtube_player.js"></script>
-    <!-- <script src="audio_player.js"></script>  -->
+    <script src="script_timer.js"></script>
+    <script src="songs.js"></script>
+    <script src="audio_player.js"></script>
     
 </body>
 </html>

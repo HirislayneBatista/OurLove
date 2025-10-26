@@ -1,101 +1,92 @@
-let audioPlayer;
-let playPauseBtn;
-let prevBtn;
-let nextBtn;
-let currentTrackInfo;
-let currentTrackIndex = 0;
-let playlist = []; // Armazenará as músicas disponíveis
+let currentMusic = 0;
+const music = document.querySelector("#audio");
+const seekBar = document.querySelector(".seek-bar");
+const songName = document.querySelector(".music-name");
+const artistName = document.querySelector(".artist-name");
+const currentTime = document.querySelector(".current-time");
+const musicDuration = document.querySelector(".music-duration");
+const playBtn = document.querySelector(".play-btn");
+const forwardBtn = document.querySelector(".forward-btn");
+const backwardBtn = document.querySelector(".backward-btn");
 
-export function initializeAudioPlayer() {
-    audioPlayer = document.getElementById('loveAudioPlayer');
-    playPauseBtn = document.getElementById('playPauseBtn');
-    prevBtn = document.getElementById('prevBtn');
-    nextBtn = document.getElementById('nextBtn');
-    currentTrackInfo = document.getElementById('currentTrackInfo');
+playBtn.addEventListener("click", () => {
+    if(playBtn.className.includes("pause")){
+        music.play();
+    }else{
+        music.pause();
+    }
+    playBtn.classList.toggle("pause");
+});
 
-    // Preenche a playlist com as fontes do HTML
-    const sources = audioPlayer.querySelectorAll('source');
-    sources.forEach(source => {
-        playlist.push({
-            src: source.src,
-            title: source.title || 'Música Desconhecida'
-        });
-    });
+const setMusic = (i) => {
+    seekBar.value = 0;
+    let song = musicList[i];
+    currentMusic = i;
+    music.src = song.path;
 
-    // Garante que haja pelo menos uma música
-    if (playlist.length > 0) {
-        audioPlayer.src = playlist[currentTrackIndex].src;
-        updateTrackInfo();
+    songName.innerHTML = song.name;
+    artistName.innerHTML = song.artist;
+
+    currentTime.innerHTML = '00:00';
+    setTimeout(() => {
+        seekBar.max = music.duration;
+        musicDuration.innerHTML = formatTime(music.duration);
+    }, 300);
+}
+
+setMusic(0);
+
+const formatTime = (time) => {
+    let min = Math.floor(time / 60);
+    if (min < 10) {
+        min = `0${min}`;
+    }
+    let sec = Math.floor(time % 60);
+    if (sec < 10) {
+        sec = `0${sec}`;
+    }
+    return `${min}:${sec}`;
+}   
+
+// Barra de progresso
+setInterval(() => {
+    seekBar.value = music.currentTime;
+    currentTime.innerHTML = formatTime(music.currentTime);
+    
+    // Avanco automatico para a proxima musica
+    if (Math.floor(music.currentTime) == Math.floor(seekBar.max)) {
+        forwardBtn.click();
+    }
+}, 500);
+
+seekBar.addEventListener("change", () => {
+    music.currentTime = seekBar.value;
+});
+
+// Avancar e retroceder musicas
+const playMusic = () => {
+    music.play();
+    playBtn.classList.remove("pause");
+}
+
+forwardBtn.addEventListener("click", () => {
+    if (currentMusic >= musicList.length - 1) {
+        currentMusic = 0;
     } else {
-        playPauseBtn.disabled = true;
-        prevBtn.disabled = true;
-        nextBtn.disabled = true;
-        currentTrackInfo.textContent = "Nenhuma música na playlist.";
-        return;
+        currentMusic++;
     }
+    setMusic(currentMusic);
+    playMusic();
+});
 
-    // Event Listeners
-    playPauseBtn.addEventListener('click', togglePlayPauseAudio);
-    prevBtn.addEventListener('click', playPreviousTrack);
-    nextBtn.addEventListener('click', playNextTrack);
-    audioPlayer.addEventListener('ended', playNextTrack); // Toca a próxima automaticamente
-    audioPlayer.addEventListener('pause', updatePlayPauseButton);
-    audioPlayer.addEventListener('play', updatePlayPauseButton);
-}
-
-function togglePlayPauseAudio() {
-    if (audioPlayer.paused) {
-        audioPlayer.play().catch(error => {
-            console.error("Autoplay foi bloqueado:", error);
-            alert("O navegador bloqueou a reprodução automática. Por favor, clique no botão de Play novamente.");
-            updatePlayPauseButton(); 
-        });
+backwardBtn.addEventListener("click", () => {
+    if (currentMusic <= 0) {
+        currentMusic = musicList.length - 1;
     } else {
-        audioPlayer.pause();
+        currentMusic--;
     }
-    updatePlayPauseButton();
-}
+    setMusic(currentMusic);
+    playMusic();
+});
 
-function updatePlayPauseButton() {
-    if (audioPlayer.paused) {
-        playPauseBtn.innerHTML = `
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-play-fill" viewBox="0 0 16 16">
-              <path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393"/>
-            </svg>
-        `;
-    } else {
-        playPauseBtn.innerHTML = `
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-pause-fill" viewBox="0 0 16 16">
-              <path d="M5.5 3.5A1.5 1.5 0 0 1 7 5v6a1.5 1.5 0 0 1-3 0V5a1.5 1.5 0 0 1 1.5-1.5m2.5 0A1.5 1.5 0 0 1 10 5v6a1.5 1.5 0 0 1-3 0V5a1.5 1.5 0 0 1 1.5-1.5m2.5 0A1.5 1.5 0 0 1 13 5v6a1.5 1.5 0 0 1-3 0V5a1.5 1.5 0 0 1 1.5-1.5"/>
-            </svg>
-        `;
-    }
-}
 
-function updateTrackInfo() {
-    if (playlist.length > 0) {
-        currentTrackInfo.textContent = `Música atual: ${playlist[currentTrackIndex].title}`;
-    }
-}
-
-function playNextTrack() {
-    currentTrackIndex = (currentTrackIndex + 1) % playlist.length;
-    loadAndPlayCurrentTrack();
-}
-
-function playPreviousTrack() {
-    currentTrackIndex = (currentTrackIndex - 1 + playlist.length) % playlist.length;
-    loadAndPlayCurrentTrack();
-}
-
-function loadAndPlayCurrentTrack() {
-    audioPlayer.src = playlist[currentTrackIndex].src;
-    audioPlayer.load(); 
-    audioPlayer.play().catch(error => {
-        console.error("Autoplay foi bloqueado ao trocar de música:", error);
-        alert("O navegador bloqueou a reprodução automática da próxima música. Por favor, clique no botão de Play.");
-        updatePlayPauseButton();
-    });
-    updateTrackInfo();
-    updatePlayPauseButton();
-}
