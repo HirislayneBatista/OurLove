@@ -1,51 +1,3 @@
-<!-- <!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contador de Amor</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <div class="container d-flex justify-content-center align-items-center vh-100">
-        <div class="card text-center p-4 shadow-lg">
-            Carrossel de fotos 
-            <div id="loveCarousel" class="carousel slide mb-4" data-bs-ride="carousel">
-                <div class="carousel-inner rounded">
-                    <div class="carousel-item active">
-                        <img src="/fotos/Foto1.jpg" class="d-block w-100" alt="Foto 1">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="/fotos/Foto2.jpg" class="d-block w-100" alt="Foto 2">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="/fotos/Foto3.jpg" class="d-block w-100" alt="Foto 3">
-                    </div>
-                </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#loveCarousel" data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Anterior</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#loveCarousel" data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Próximo</span>
-                </button>
-            </div>
-
-            <h1 class="display-5 mb-4 text-danger">Eu te amo há:</h1>
-            <div class="timer fs-4" id="loveTimer">
-                Carregando...
-            </div>
-        </div>
-    </div>
-
-    Bootstrap JS e Popper
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="script.js"></script>
-</body>
-</html> -->
-
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -53,13 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nosso Amor</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container d-flex justify-content-center align-items-center vh-100">
+    <div class="container d-flex justify-content-center py-2">
         <div class="card text-center p-4 shadow-lg love-card">
-            <!-- Carrossel de fotos ajustado -->
-            <div id="loveCarousel" class="carousel slide mb-4 mx-auto" style="max-width: 400px;" data-bs-ride="carousel">
+            
+            <!-- Player de Música -->
+            <div class="audio-player-container mb-4 mx-auto">
+                <p class="fw-bold text-muted">💜🌊</p>
+                <audio id="loveAudioPlayer" preloads="auto" controls loop>
+                    <source src="/musicas/Oceano.mp3" type="audio/mpeg" title="Oceano">
+                    <source src="/musicas/Acerola.mp3" type="audio/mpeg" title="Acerola">
+                </audio>
+                <small class="text-muted d-block mt-2">Você é o meu mar.</small>
+            </div>
+
+            <!-- Carrossel de fotos -->
+            <div id="loveCarousel" class="carousel slide mb-4 mx-auto" style="max-width: 230px;" data-bs-ride="carousel">
                 <div class="carousel-inner rounded">
                     <div class="carousel-item active">
                         <img src="/fotos/Foto1.jpg" class="d-block w-100 carousel-img" alt="Nossa Foto 1">
@@ -96,23 +59,31 @@
                 </button>
             </div>
 
-            <h1 class="display-5 mb-4 text-danger fw-bold">Eu te amo há:</h1>
+            <!-- Contador -->
+            <h3 class="mb-4 text-danger fw-bold">Eu te amo há:</h3>
             <div class="timer fs-4 mb-4" id="loveTimer">
                 Carregando...
             </div>
 
+            <!-- Mensagem para Gomeshinho -->
             <div class="love-message mt-4 p-3 rounded">
-                <p class="fst-italic mb-1"><strong>Oooi, meu Gomeshinho!</strong></p>
-                <p class="mb-2">Todo dia ao seu lado é uma celebração do amor. É impressionante como você consegue transformar momentos simples em memórias inesquecíveis.</p>
-                <p class="mb-2">Seu jeito, seu sorriso, seu olhar... tudo em você me faz querer ser alguém melhor. Você é meu lar, meu porto seguro e minha melhor escolha todos os dias.</p>
-                <p class="mb-2">Obrigado por estar comigo, por me amar do jeito que sou e por fazer meu mundo mais bonito só por existir nele. Que venham muitos dias dos namorados juntos - e todos os outros também.</p>
-                <p class="mb-0">Te amo com tudo que sou. 😊</p>
+                <p class="fst-italic mb-1"><strong>Olá, meu Gomeshinho, meu gatinho!</strong></p>
+                <p class="mb-2">Cada ano, mês, dia, hora, minuto e segundo ao seu lado sempre me fizeram querer ser alguém melhor.</p>
+                <p class="mb-2">...</p>
+                <p class="mb-2">...</p>
+                <p class="mb-2">Você é uma das maiores bençãos da minha vida, minha melhor escolha todos os dias, meu porto seguro, meu mar.</p>
+                <p class="mb-2">Obrigado por querer compartilhar dessa vida comigo, por todo o carinho, paciencia, amor e dedicação em nosso relacionamento</p>
+                <p class="mb-2">Que transformemos cada momento do nosso amor em memórias inesquecíveis pra lembrarmos, rirmos e contarmos.</p>
+                <p class="mb-0">Te amo e amarei até o meu último suspiro. </p>
                 <p class="text-end mt-3 fw-bold">Com amor,<br>sua Hirisginha.</p>
             </div>
         </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="script.js"></script>
+    <script src="script_timer.js" type="module"></script>
+    <script src="youtube_player.js"></script>
+    <!-- <script src="audio_player.js"></script>  -->
+    
 </body>
 </html>
