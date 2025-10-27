@@ -4,6 +4,7 @@ body {
     width: 100%;
     height: auto;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
@@ -37,7 +38,6 @@ body {
 }
 
 .love-message p {
-    margin-bottom: 0.5rem;
     color: #161616;
 }
 

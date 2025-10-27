@@ -1,3 +1,5 @@
+import { setupPhotoCarousel } from './photo_carousel.js';
+
 // Data de inicio do nosso relacionamento (15/11/2024 as 18:00)
 // Meses de 0-11 (novembro = 10)
 const startDate = new Date(2024, 10, 15, 18, 0, 0);
@@ -57,8 +59,5 @@ document.addEventListener('DOMContentLoaded', function() {
     setInterval(updateTimer, 1000);
     
     // Inicializar carrossel do Bootstrap
-    new bootstrap.Carousel(document.getElementById('loveCarousel'), {
-        interval: 3000,
-        wrap: true
-    });
+    setupPhotoCarousel();
 });
