@@ -3,40 +3,40 @@ export function setupPhotoCarousel() {
         <div id="loveCarousel" class="carousel slide mb-4 mx-auto" style="max-width: 230px;" data-bs-ride="carousel">
             <div class="carousel-inner rounded">
                 <div class="carousel-item active">
-                    <img src="/fotos/Foto1.jpg" class="d-block w-100 carousel-img" alt="16-11-2024">
+                    <img src="fotos/Foto1.jpg" class="d-block w-100 carousel-img" alt="16-11-2024">
                 </div>
                 <div class="carousel-item">
-                    <img src="/fotos/Foto2.jpg" class="d-block w-100 carousel-img" alt="22-12-2024">
+                    <img src="fotos/Foto2.jpg" class="d-block w-100 carousel-img" alt="22-12-2024">
                 </div>
                 <div class="carousel-item">
-                    <img src="/fotos/Foto4.jpg" class="d-block w-100 carousel-img" alt="20-12-2024">
+                    <img src="fotos/Foto4.jpg" class="d-block w-100 carousel-img" alt="20-12-2024">
                 </div>
                 <div class="carousel-item">
-                    <img src="/fotos/Foto3.jpg" class="d-block w-100 carousel-img" alt="24-12-2024">
+                    <img src="fotos/Foto3.jpg" class="d-block w-100 carousel-img" alt="24-12-2024">
                 </div>
                 <div class="carousel-item">
-                    <img src="/fotos/Foto5.jpg" class="d-block w-100 carousel-img" alt="03-03-2025">
+                    <img src="fotos/Foto5.jpg" class="d-block w-100 carousel-img" alt="03-03-2025">
                 </div>
                 <div class="carousel-item">
-                    <img src="/fotos/Foto6.jpg" class="d-block w-100 carousel-img" alt="04-03-2025">
+                    <img src="fotos/Foto6.jpg" class="d-block w-100 carousel-img" alt="04-03-2025">
                 </div>
                 <div class="carousel-item">
-                    <img src="/fotos/Foto7.jpg" class="d-block w-100 carousel-img" alt="22-05-2025">
+                    <img src="fotos/Foto7.jpg" class="d-block w-100 carousel-img" alt="22-05-2025">
                 </div>
                 <div class="carousel-item">
-                    <img src="/fotos/Foto8.jpg" class="d-block w-100 carousel-img" alt="22-05-2025">
+                    <img src="fotos/Foto8.jpg" class="d-block w-100 carousel-img" alt="22-05-2025">
                 </div>
                 <div class="carousel-item">
-                    <img src="/fotos/Foto9.jpg" class="d-block w-100 carousel-img" alt="12-06-2025">
+                    <img src="fotos/Foto9.jpg" class="d-block w-100 carousel-img" alt="12-06-2025">
                 </div>
                 <div class="carousel-item">
-                    <img src="/fotos/Foto10.jpg" class="d-block w-100 carousel-img" alt="06-07-2025">
+                    <img src="fotos/Foto10.jpg" class="d-block w-100 carousel-img" alt="06-07-2025">
                 </div>
                 <div class="carousel-item">
-                    <img src="/fotos/Foto11.jpg" class="d-block w-100 carousel-img" alt="28-07-2025">
+                    <img src="fotos/Foto11.jpg" class="d-block w-100 carousel-img" alt="28-07-2025">
                 </div>
                 <div class="carousel-item">
-                    <img src="/fotos/Foto12.jpg" class="d-block w-100 carousel-img" alt="21-09-2025">
+                    <img src="fotos/Foto12.jpg" class="d-block w-100 carousel-img" alt="21-09-2025">
                 </div>
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#loveCarousel" data-bs-slide="prev">
