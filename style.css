@@ -212,13 +212,12 @@ body {
 /*** Responsividade ***/
 @media (max-width: 576px) {
     .carousel-img {
-        height: 200px;
+        height: auto;
+        width: auto;
+        object-fit: cover;
     }
     
     .love-card {
         padding: 1.5rem !important;
-    }
-    .timer {
-        font-size: 1.2rem; /* Reduz o tamanho da fonte do timer se desejar */
     }
 }
