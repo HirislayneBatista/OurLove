@@ -9,6 +9,12 @@ const playBtn = document.querySelector(".play-btn");
 const forwardBtn = document.querySelector(".forward-btn");
 const backwardBtn = document.querySelector(".backward-btn");
 
+//Executada assim que a duração da mídia está disponível
+music.addEventListener('loadedmetadata', () => { 
+    seekBar.max = music.duration;
+    musicDuration.innerHTML = formatTime(music.duration);
+});
+
 playBtn.addEventListener("click", () => {
     if(playBtn.className.includes("pause")){
         music.play();
@@ -28,10 +34,8 @@ const setMusic = (i) => {
     artistName.innerHTML = song.artist;
 
     currentTime.innerHTML = '00:00';
-    setTimeout(() => {
-        seekBar.max = music.duration;
-        musicDuration.innerHTML = formatTime(music.duration);
-    }, 300);
+
+    music.load();
 }
 
 setMusic(0);
