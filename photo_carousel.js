@@ -6,6 +6,9 @@ export function setupPhotoCarousel() {
                     <img src="fotos/Foto1.jpg" class="d-block w-100 carousel-img" alt="16-11-2024">
                 </div>
                 <div class="carousel-item">
+                    <img src="fotos/Foto13.jpg" class="d-block w-100 carousel-img" alt="24-11-2024">
+                </div>
+                <div class="carousel-item">
                     <img src="fotos/Foto2.jpg" class="d-block w-100 carousel-img" alt="22-12-2024">
                 </div>
                 <div class="carousel-item">
